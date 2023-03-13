@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { RouterProvider } from 'react-router-dom';
 
-function App() {
+import router from './router';
+import { Provider } from 'mobx-react';
+import stores from 'stores';
+import Container from 'components/container/Container';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider {...stores}>
+      <Container>
+        <RouterProvider router={router} />
+      </Container>
+    </Provider>
   );
-}
+};
 
 export default App;
