@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { apiClient } from "utils/ApiClient";
 
 export default class FilmsStore {
   constructor(rootStore) {
@@ -6,5 +7,7 @@ export default class FilmsStore {
     makeAutoObservable(this);
   }
 
-  getBooks() {}
+  getFilms() {
+    return apiClient.get("/movies");
+  }
 }

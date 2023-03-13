@@ -6,7 +6,7 @@ function Container({ children }) {
 }
 
 Container.propTypes = {
-  children: PropTypes.elementType,
+  children: PropTypes.any
 };
 
 export default Container;
