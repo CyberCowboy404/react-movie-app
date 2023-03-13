@@ -1,11 +1,11 @@
 import { observer } from "mobx-react";
 
-function HomePage() {
+function FilmInfo() {
   return (
     <article>
-      <h1>Hello</h1>
+      <h1>Hello book info</h1>
     </article>
   );
 }
 
-export default observer(HomePage);
+export default observer(FilmInfo);

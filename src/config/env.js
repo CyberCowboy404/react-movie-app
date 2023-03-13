@@ -1,1 +1,1 @@
-export const API_URL = 'https://wookie.codesubmit.io';
+export const API_URL = "https://wookie.codesubmit.io";

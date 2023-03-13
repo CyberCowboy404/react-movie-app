@@ -1,12 +1,12 @@
-import React from 'react';
-import './Container.css';
+import { PropTypes } from "prop-types";
+import "./Container.css";
 
-const Container = ({ children }) => {
-  return (
-    <main className="container">
-      {children}
-    </main>
-  );
+function Container({ children }) {
+  return <main className="container">{children}</main>;
 }
+
+Container.propTypes = {
+  children: PropTypes.elementType,
+};
 
 export default Container;

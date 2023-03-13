@@ -1,20 +1,19 @@
-import React from 'react';
-import { createBrowserRouter, } from 'react-router-dom';
+import { createBrowserRouter } from "react-router-dom";
 
-import Home from 'pages/home/Home';
-import BookInfo from 'pages/book-info/BookInfo';
+import Home from "./pages/home/Home";
+import FilmInfo from "./pages/film-info/FilmInfo";
 
-import NotFound from 'pages/not-found';
+import NotFound from "./pages/not-found";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <NotFound />
+    errorElement: <NotFound />,
   },
   {
-    path: "/book/:bookId",
-    element: <BookInfo />,
+    path: "/film/:filmInfo",
+    element: <FilmInfo />,
   },
 ]);
 
