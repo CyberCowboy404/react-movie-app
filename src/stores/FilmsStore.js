@@ -1,32 +1,38 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, observable, action } from "mobx";
 import { apiClient } from "utils/ApiClient";
 
 export default class FilmsStore {
-  constructor(rootStore) {
-    this.rootStore = rootStore;
+  moviesData = {
+    movies: [],
+    searchResults: [],
+  };
+
+  constructor() {
     makeAutoObservable(this);
   }
 
   async getAllFilms() {
-    this.moviesData = this.moviesData || (await apiClient.get("/movies"));
+    const { movies } = await apiClient.get("/movies");
+    this.moviesData.movies = movies;
     return this.moviesData;
   }
 
   getCategories() {
+    let result = [];
     if (this.moviesData && this.moviesData.movies) {
       const genres = this.moviesData.movies.reduce(
         (acc, cur) => acc.concat(cur.genres),
         []
       );
-      this.moviesData.genres = new Set(genres);
+      result = new Set(genres);
     }
 
-    return [...this.moviesData.genres];
+    return [...result];
   }
 
   getFilmsByCategory(category) {
     let moviesByCategory = [];
-    if (this.moviesData && this.moviesData.movies) {
+    if (this.moviesData.movies) {
       moviesByCategory = this.moviesData.movies.filter((movie) =>
         movie.genres.includes(category)
       );
@@ -36,8 +42,10 @@ export default class FilmsStore {
   }
 
   async searchFilms(query) {
-    this.moviesData.searchResults = await apiClient.get(`/movies?q=${query}`);
-    return this.moviesData.searchResults;
+    const { movies } = await apiClient.get(`/movies?q=${query}`);
+    this.moviesData.searchResults = movies;
+    console.log("🚀 ~ file: FilmsStore.js:47 ~ FilmsStore ~ searchFilms ~ this.moviesData.searchResults:", movies)
+    return movies;
   }
 
   getFilmInfoById(id) {

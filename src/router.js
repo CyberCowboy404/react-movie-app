@@ -12,7 +12,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Container />,
-    errorElement: <NotFound />,
     loader: () => store.filmsStore.getAllFilms(),
     children: [
       {
@@ -22,12 +21,14 @@ const router = createBrowserRouter([
       {
         path: "/film/:id",
         element: <FilmInfo />,
-        errorElement: <NotFound />,
       },
       {
         path: "/search/:query",
         element: <Search />,
-        errorElement: <NotFound />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       }
     ]
   },

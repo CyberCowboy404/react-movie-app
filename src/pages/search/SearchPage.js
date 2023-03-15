@@ -1,13 +1,23 @@
-import { useContext } from "react";
-import { observer, MobXProviderContext } from "mobx-react";
+import { useContext, useEffect } from "react";
+import { MobXProviderContext, observer } from "mobx-react";
+import { useParams } from "react-router-dom";
 import Category from "components/category/Category";
 
 function SearchPage() {
     const { filmsStore } = useContext(MobXProviderContext);
+    let { query } = useParams();
+
+    useEffect(() => {
+        filmsStore.searchFilms(query);
+    }, [query]);
 
     return (
         <div className="category-wrapper">
-            <h2>Search Results</h2>
+            <h2>Search Results: {query}</h2>
+            
+            Items found: {filmsStore.moviesData.searchResults.length}
+
+            <Category categoryName={"Found movies"} items={filmsStore.moviesData.searchResults} />
 
         </div>
     );

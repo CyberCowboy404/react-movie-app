@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import './Category.scss';
 
 function Category({ categoryName, items }) {
-    // console.log("🚀 ~ file: Category.js:6 ~ Category ~ items:", items)
     return (
         <>
             <h3 className="category__title">{categoryName}</h3>

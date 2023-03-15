@@ -13,8 +13,6 @@ function FilmInfo() {
   const date = parseDate(film.released_on);
   const dateFormat = `${date.monthName} ${date.day}, ${date.year}`
 
-  console.log("🚀 ~ file: FilmInfo.js:9 ~ FilmInfo ~ film:", film)
-
   return (
     <article className="film-item">
       <div className="film-item__image-wrapper">
