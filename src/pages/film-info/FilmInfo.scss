@@ -1,0 +1,27 @@
+.film-item {
+    display: flex;
+    justify-content: space-between;
+
+    &__image-wrapper {
+        max-width: 45%;
+        margin-right: 20px;
+    }
+
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+
+    &__description {
+        width: 45%;
+        margin-right: 40px;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        margin: 20px 0 10px 0;
+    }
+
+    &__text {
+        font-size: 1rem;
+    }
+}

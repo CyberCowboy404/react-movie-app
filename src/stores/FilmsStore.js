@@ -39,4 +39,13 @@ export default class FilmsStore {
     this.moviesData.searchResults = await apiClient.get(`/movies?q=${query}`);
     return this.moviesData.searchResults;
   }
+
+  getFilmInfoById(id) {
+    let filmInfo = {};
+    if (this.moviesData && this.moviesData.movies) {
+      filmInfo = this.moviesData.movies.find((movie) => movie.id === id);
+    }
+
+    return filmInfo;
+  }
 }

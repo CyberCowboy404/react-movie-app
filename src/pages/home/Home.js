@@ -6,18 +6,10 @@ import './Home.scss';
 function HomePage() {
   const { filmsStore } = useContext(MobXProviderContext);
 
-  const getCategories = () => {
-    return filmsStore.getCategories();
-  }
-
-  const getFilmsByCategory = (category) => {
-    return filmsStore.getFilmsByCategory(category);
-  }
-
   return (
     <div className="category-wrapper">
-      {getCategories().map((category) => (
-        <Category key={category} categoryName={category} items={getFilmsByCategory(category)} />
+      {filmsStore.getCategories().map((category) => (
+        <Category key={category} categoryName={category} items={filmsStore.getFilmsByCategory(category)} />
       ))}
     </div>
   );
