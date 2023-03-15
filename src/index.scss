@@ -1,11 +1,13 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Roboto', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
+  font-weight: 400;
+  line-height: 1.35;
 }
 
 code {
@@ -15,9 +17,6 @@ code {
 a {
   text-decoration: none;
   color: #333;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 * {

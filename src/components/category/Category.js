@@ -7,15 +7,17 @@ function Category({ categoryName, items }) {
     console.log("🚀 ~ file: Category.js:6 ~ Category ~ items:", items)
     return (
         <>
-            <h3 className="category--title">{categoryName}</h3>
+            <h3 className="category__title">{categoryName}</h3>
             <article className="category flex wrap">
                 {items.map((item) => (
-                    <section key={item.id} className="category--block">
-                        <a href={`/film/${item.id}`} className="category--item-link">
+                    <section key={item.id} className="category__block">
+                        <a href={`/film/${item.id}`} className="category__item-link">
                             <img src={item.backdrop} alt={item.title} />
-                            <div>
+                            <div className="category__item-content">
                                 <Rating rating={item.imdb_rating} />
-                                <h4 className="category--item-title">{item.title}</h4>
+                                <h4 className="category__item-title">{item.title}</h4>
+                                <p className="category__item-overview">{item.overview}</p>
+                                <button className="category__item-btn"> Read More</button>
                             </div>
                         </a>
                     </section>
