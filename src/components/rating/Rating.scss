@@ -1,10 +1,16 @@
+@import "Theme.scss";
+
 .rating {
     margin: 10px 0;
     display: flex;
     align-items: center;
     font-size: 0.9rem;
+    b {
+        color: $site-color
+    }
     svg {
         color: #f5c519;
         margin: 0 5px;
+        font-size: 17px;
     }
 }

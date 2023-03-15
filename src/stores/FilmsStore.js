@@ -21,7 +21,7 @@ export default class FilmsStore {
       this.moviesData.genres = new Set(genres);
     }
 
-    return this.moviesData.genres;
+    return [...this.moviesData.genres];
   }
 
   getFilmsByCategory(category) {
@@ -33,5 +33,10 @@ export default class FilmsStore {
     }
 
     return moviesByCategory;
+  }
+
+  async searchFilms(query) {
+    this.moviesData.searchResults = await apiClient.get(`/movies?q=${query}`);
+    return this.moviesData.searchResults;
   }
 }

@@ -5,7 +5,9 @@ const Rating = ({ rating }) => {
     
     return (
         <span className='rating'>
-            <b>IMDb:</b> <FaStar /> {rating}
+            <b>IMDb:</b> 
+            <FaStar /> 
+            <span>{rating}</span>
         </span>
     );
 };

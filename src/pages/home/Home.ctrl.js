@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 
 export default class FilmsController {
   constructor(filmsStore) {
-    this.films = filmsStore.films;
+    this.films = filmsStore;
     makeAutoObservable(this);
   }
 

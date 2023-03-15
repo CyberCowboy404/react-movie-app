@@ -6,11 +6,11 @@ import './Home.scss';
 
 function HomePage() {
   const { filmsStore } = useContext(MobXProviderContext);
-  const [controller] = useState(new FilmsController({ films: filmsStore }));
+  const [controller] = useState(new FilmsController(filmsStore));
 
   return (
     <div className="category-wrapper">
-      {[...controller.getCategories()].map((category) => (
+      {controller.getCategories().map((category) => (
         <Category key={category} categoryName={category} items={controller.getFilmsByCategory(category)} />
       ))}
     </div>
