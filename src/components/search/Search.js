@@ -1,22 +1,28 @@
-import { useContext } from 'react';
-import { observer, MobXProviderContext } from 'mobx-react';
-import SearchController from './Search.ctrl';
+import { useNavigate } from 'react-router-dom';
 import './Search.scss';
+import { FaSearch } from 'react-icons/fa';
 
 const Search = ({ placeholder }) => {
-  const { filmsStore } = useContext(MobXProviderContext);
-  const controller = new SearchController(filmsStore);
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate(`/search/${event.target.search.value}`);
+  }
 
   return (
-    <div className="search">
+    <form className="search" onSubmit={handleSubmit}>
       <input
         type="text"
-        onChange={controller.handleSearch}
+        name='search'
         placeholder={placeholder || 'Search...'}
         className="search__input"
       />
-    </div>
+      <button type="submit" className="search__button">
+        <FaSearch />
+      </button>
+    </form>
   );
 };
 
-export default observer(Search);
+export default Search;

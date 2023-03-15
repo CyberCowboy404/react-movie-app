@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.scss";
 import Search from "components/search/Search";
 
@@ -5,9 +6,11 @@ const Header = () => {
     return (
         <>
             <header className="site-header">
-                <img className="logo" width="150" src="logo.png" alt="logo" />
+                <Link to="/">
+                    <img className="logo" width="150" src="/logo.png" alt="logo" />
+                </Link>
                 <div className="site-header__search-box">
-                    <Search   />
+                    <Search />
                 </div>
             </header>
             <hr />
