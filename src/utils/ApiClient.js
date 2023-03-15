@@ -3,8 +3,16 @@ import { API_URL } from "../config/env";
 class ApiClient {
   baseUrl = API_URL;
 
+  headers = {
+    "Content-Type": "application/json",
+    Authorization: "Bearer Wookie2021"
+  };
+
   async get(path) {
-    const response = await fetch(`${this.baseUrl}${path}`);
+    const response = await fetch(`${this.baseUrl}${path}`, {
+      method: "GET",
+      headers: this.headers
+    });
 
     return response.json();
   }
@@ -12,10 +20,8 @@ class ApiClient {
   async post(path, payload) {
     const response = await fetch(`${this.baseUrl}${path}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
+      headers: this.headers,
+      body: JSON.stringify(payload)
     });
 
     return response.json();

@@ -1,0 +1,28 @@
+.category {
+    margin-bottom: 20px;
+    &--title {
+        font-size: 1.6rem;
+        font-weight: 900;
+        margin: 0 0 15px;
+    }
+    &--block {
+        width: calc(25% - 20px);
+        margin: 10px 20px 15px 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &--item-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 6px 0;
+        color: #333;
+        text-decoration: none;
+        &:hover {
+            color: #000;
+            text-decoration: none;
+        }
+    }
+}
