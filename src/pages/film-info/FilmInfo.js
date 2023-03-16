@@ -11,7 +11,6 @@ function FilmInfo() {
   const { filmsStore } = useContext(MobXProviderContext);
   const { id } = useParams();
   const film = filmsStore.getFilmInfoById(id);
-  console.log("🚀 ~ file: FilmInfo.js:13 ~ FilmInfo ~ film:", film)
   const date = parseDate(film.released_on);
   const dateFormat = `${date.monthName} ${date.day}, ${date.year}`;
 
@@ -30,7 +29,7 @@ function FilmInfo() {
           <Rating rating={film.imdb_rating} />
         </div>
         <p className="film-item__info">
-          <b>Year:</b> {dateFormat} 
+          <b>Year:</b> {dateFormat}
         </p>
         <p className="film-item__info">
           <b>Length:</b> {film.length}

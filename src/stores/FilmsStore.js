@@ -42,7 +42,6 @@ export default class FilmsStore {
   }
 
   async searchFilms(query) {
-    console.log("🚀 ~ file: FilmsStore.js:45 ~ FilmsStore ~ searchFilms ~ query:", query)
     const { movies } = await apiClient.get(`/movies?q=${query}`);
     this.moviesData.searchResults = movies;
 
