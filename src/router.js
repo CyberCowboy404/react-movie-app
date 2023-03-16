@@ -16,22 +16,23 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Home />
       },
       {
         path: "/film/:id",
-        element: <FilmInfo />,
+        element: <FilmInfo />
       },
       {
         path: "/search/:query",
         element: <Search />,
+        loader: ({ params }) => store.filmsStore.searchFilms(params.query)
       },
       {
         path: "*",
-        element: <NotFound />,
+        element: <NotFound />
       }
     ]
-  },
+  }
 ]);
 
 export default router;

@@ -1,10 +1,10 @@
-import { makeAutoObservable, observable, action } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { apiClient } from "utils/ApiClient";
 
 export default class FilmsStore {
   moviesData = {
     movies: [],
-    searchResults: [],
+    searchResults: []
   };
 
   constructor() {
@@ -42,9 +42,10 @@ export default class FilmsStore {
   }
 
   async searchFilms(query) {
+    console.log("🚀 ~ file: FilmsStore.js:45 ~ FilmsStore ~ searchFilms ~ query:", query)
     const { movies } = await apiClient.get(`/movies?q=${query}`);
     this.moviesData.searchResults = movies;
-    console.log("🚀 ~ file: FilmsStore.js:47 ~ FilmsStore ~ searchFilms ~ this.moviesData.searchResults:", movies)
+
     return movies;
   }
 

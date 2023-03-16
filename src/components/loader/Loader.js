@@ -25,11 +25,11 @@ function Loader({ visible = false }) {
 }
 
 Loader.propTypes = {
-  visible: PropTypes.bool,
+  visible: PropTypes.bool
 };
 
 Loader.defaultProps = {
-  visible: false,
+  visible: false
 };
 
 export default observer(Loader);

@@ -7,7 +7,7 @@ import router from "./Router";
 function App() {
   return (
     <Provider {...stores}>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </Provider>
   );
 }
