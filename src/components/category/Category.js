@@ -18,7 +18,6 @@ function Category({ categoryName, items }) {
                 <h4 className="category__item-title">{item.title}</h4>
                 <p className="category__item-overview">{item.overview}</p>
                 <button type="button" className="category__item-btn">
-                  {" "}
                   Read More
                 </button>
               </div>

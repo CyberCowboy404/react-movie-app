@@ -80,3 +80,27 @@
         }
     }
 }
+
+@media (max-width: 1100px) {
+    .category {
+        &__block {
+            width: calc(33% - 20px);
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .category {
+        &__block {
+            width: calc(50% - 20px);
+        }
+    }
+}
+
+@media (max-width: 745px) {
+    .category {
+        &__block {
+            width: calc(100% - 20px);
+        }
+    }
+}

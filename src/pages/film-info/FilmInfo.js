@@ -5,11 +5,13 @@ import "./FilmInfo.scss";
 
 import Rating from "components/rating/Rating";
 import { parseDate } from "utils/DateParse";
+import { joinArray } from "utils/joinArray";
 
 function FilmInfo() {
   const { filmsStore } = useContext(MobXProviderContext);
   const { id } = useParams();
   const film = filmsStore.getFilmInfoById(id);
+  console.log("🚀 ~ file: FilmInfo.js:13 ~ FilmInfo ~ film:", film)
   const date = parseDate(film.released_on);
   const dateFormat = `${date.monthName} ${date.day}, ${date.year}`;
 
@@ -28,8 +30,16 @@ function FilmInfo() {
           <Rating rating={film.imdb_rating} />
         </div>
         <p className="film-item__info">
-          <b>Year:</b> {dateFormat} | <b>Length:</b> {film.length} |{" "}
-          <b>Director</b> {film.director}
+          <b>Year:</b> {dateFormat} 
+        </p>
+        <p className="film-item__info">
+          <b>Length:</b> {film.length}
+        </p>
+        <p className="film-item__info">
+          <b>Director:</b> {joinArray(film.director)}
+        </p>
+        <p className="film-item__info">
+          <b>Genres:</b> {joinArray(film.genres)}
         </p>
         <p>
           <b>Cast: </b>

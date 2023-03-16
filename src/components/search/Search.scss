@@ -1,14 +1,19 @@
 @import "Theme.scss";
 
+@function pxToEm($px) {
+  @return #{$px / 16}em;
+}
+
 .search {
   position: relative;
   display: flex;
   width: 100%;
+  font-size: 16px;
 
   &__input {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    padding: pxToEm(10);
+    font-size: pxToEm(16);
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
@@ -26,8 +31,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
-    padding: 0 20px;
+    height: pxToEm(41);
+    padding: 0 pxToEm(20);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     margin-left: -3px;
     transition: opacity 0.3s ease;
@@ -37,5 +42,11 @@
     svg {
       fill: #fff;
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .search {
+    font-size: 14px;
   }
 }
