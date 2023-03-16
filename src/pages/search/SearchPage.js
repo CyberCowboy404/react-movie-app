@@ -13,8 +13,8 @@ function SearchPage() {
 
     return (
         <div className="category-wrapper">
-            <h2>Search Results: {query}</h2>
-            
+            <h2>Search Results for: {query}</h2>
+
             Items found: {filmsStore.moviesData.searchResults.length}
 
             <Category categoryName={"Found movies"} items={filmsStore.moviesData.searchResults} />
